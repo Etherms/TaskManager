@@ -1,13 +1,6 @@
 <?php
     session_start();
 
-    //Check if user is already logged in, if yes redirect to dashboard
-    if(isset($_SESSION["loggedin"])&& $_SESSION["loggedin"] === true){
-        header("location: views/welcome.php");
-        exit;
-    }
-
-
     $admin_username = $admin_password = "admin";
     $username = $password ="";
 

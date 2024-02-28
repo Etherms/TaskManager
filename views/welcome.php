@@ -6,6 +6,20 @@
     <title>Document</title>
 </head>
 <body>
-        <a href="logout.php" class="logout-btn"></a>
+    <div class="navbar">
+        <div class="profile">
+            <img src="#" alt="profile-icon" class="profile-picture">
+            <p class="profile-email"><?php echo "hermosaedson459@gmail.com"?></p>
+        </div>
+        <div class="navbar-row">
+            <img src="" alt="home-icon" class="home-icon navbar-icon">
+            <a href="#" class="nav-link">Home</a>
+        </div>
+        <div class="dashboard-row">
+            <img src="" alt="dashboard-icon" class="dashboard">
+            <a href="#" class="nav-link">Dashboard</a>
+        </div>
+    </div>
+        <a href="../logout-controller.php" class="logout-btn">Logout</a>
 </body>
 </html>

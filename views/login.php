@@ -1,11 +1,18 @@
+<?php
+    session_start();
 
+    //Check if user is already logged in, if yes redirect to dashboard
+    if(isset($_SESSION["loggedin"])&& $_SESSION["loggedin"] === true){
+        header("location: ./welcome.php");
+        exit;}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Task Manager </title>
-    <link rel="stylesheet" href="../css/login.css"> 
+    <link rel="stylesheet" href="../css/login-register.css"> 
 </head>
 <body>
     <div id="background">
@@ -26,7 +33,7 @@
             </div>
             <button type="submit" class="login-btn">Login</button>
 
-            <p>Don't have an account? <a href="./register">Sign Up</a></p>
+            <p>Don't have an account? <a href="./register.php">Sign Up</a></p>
         </form>
     </div>
 </body>
