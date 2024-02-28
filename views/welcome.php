@@ -1,3 +1,14 @@
+
+<?php
+session_start();
+
+// Check if the user is not logged in
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: ./login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +31,6 @@
             <a href="#" class="nav-link">Dashboard</a>
         </div>
     </div>
-        <a href="../logout-controller.php" class="logout-btn">Logout</a>
+        <a href="../controllers/logout-controller.php  " class="logout-btn">Logout</a>
 </body>
 </html>

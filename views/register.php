@@ -17,7 +17,7 @@
 </head>
 <body>
     <div id="background">
-        <form action="../register-controller.php" method="post" id="register-form">
+        <form action="../controllers/register-controller.php" method="post" id="register-form">
             <h1 class="register-title">Register</h1>
             <p class="register-phase">Please fill this form to register</p>
             <div class="input-field">

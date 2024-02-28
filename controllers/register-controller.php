@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //To verify password
     //if(password_verify($inputed_password, $hasedpassword ->from database));
     //{proceed to homepage};
-    
+     
 
     // Prepare the INSERT statement
     $stmt = $conn->prepare("INSERT INTO users (username, email, password, reg_date) VALUES (?, ?, ?, NOW())");
@@ -25,11 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt->execute()) {
             echo "New record created successfully";
             $stmt->close();
-            header("location: views/login.php");
+            header("location: ../views/login.php");
         } else {
             echo "Error: " . $stmt->error;
             $stmt->close();
-            header("location: views/welcome.php");
+            header("location: ../views/welcome.php");
         }
     } else {
         // If the statement was not prepared successfully

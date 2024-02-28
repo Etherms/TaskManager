@@ -34,6 +34,18 @@
 .register-phase{
     margin-bottom:25px;
 }
+.login-notification {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.login-notification>*{
+    color: red;
+    font-weight: 500;
+    font-size: 17px;
+}
 .login-label,
 .register-label{
     font-weight: 600;

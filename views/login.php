@@ -16,9 +16,22 @@
 </head>
 <body>
     <div id="background">
-        <form action="../login-controller.php" method="post" id="login-form">
+        <form action="../controllers/login-controller.php" method="post" id="login-form">
             <h1 class="login-title">Login</h1>
             <p class="login-phrase">Please login to continue</p>
+            <div class="login-notification">
+                <p>
+                    <?php 
+                    if(isset($_GET['password_err'])) {
+                        $password_err = $_GET['password_err'];
+                        echo $password_err;
+                    }
+                    if(isset($_GET['username_err'])) {
+                        $username_err = $_GET['username_err'];
+                        echo $username_err;
+                    }?>    
+                </p>
+            </div>
             <div class="input-field">
                 <label for="name" class="login-label">Email or Username</label>
                 <input type="text" name="username" class="login-input">
