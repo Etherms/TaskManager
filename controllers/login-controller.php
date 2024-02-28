@@ -1,11 +1,28 @@
 <?php
-    session_start();
+session_start();
 
-    require_once "../db/config.php";
+require_once "../db/config.php";
 
-    $admin_username = $admin_password = "admin";
-    $username = $password ="";
-    $username_err = $password_err = "";
+$admin_username = $admin_password = "admin";
+$username = $password ="";
+$username_err = $password_err = "";
+$encryptionKey = "EHRMTNOS";
+
+
+
+
+// Decryption for email
+function decryptData($encryptedData,$key){
+    $initializeVector = substr($encryptedData, 0, 16);
+    $encryptedDataWithoutIV = substr($encryptedData, 16);
+
+    return openssl_decrypt($encryptedDataWithoutIV, 'aes-256', $key, 0, $initializeVector);
+}
+    
+
+
+
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
@@ -38,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(password_verify($password,$hashedPassword)){
                 session_start();
 
-                $_SESSION["loggedin"] = true;
+                 $_SESSION["loggedin"] = true;
                 $_SESSION["username"] = $username;
     
                 header("location: ../views/welcome.php");

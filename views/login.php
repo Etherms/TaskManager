@@ -34,12 +34,12 @@
             </div>
             <div class="input-field">
                 <label for="name" class="login-label">Email or Username</label>
-                <input type="text" name="username" class="login-input">
+                <input type="text" name="username" class="login-input" >
             </div>
             <div class="input-field">
                 <label for="password" class="login-label">Password</label>
-                <input type="password" name="password" id="password" class="login-input">
-            </div>
+                <input type="password" name="password" id="password" class="login-input" >
+            </div>  
             <div class="shw-field">
                 <input type="checkbox" name="showPassword" id="show-password">
                 <label for="showPassword" id="shw-btn-phrs">Show Password</label>

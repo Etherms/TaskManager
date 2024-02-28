@@ -1,3 +1,6 @@
+-- sql dump   
+    
+
 CREATE TABLE `users` (
     `id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `username` VARCHAR(30) NOT NULL,
