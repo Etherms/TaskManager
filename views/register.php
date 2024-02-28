@@ -1,3 +1,12 @@
+<?php
+    session_start();
+
+    //Check if user is already logged in, if yes redirect to dashboard
+    if(isset($_SESSION["loggedin"])&& $_SESSION["loggedin"] === true){
+        header("location: ./welcome.php");
+        exit;}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,15 +22,15 @@
             <p class="register-phase">Please fill this form to register</p>
             <div class="input-field">
                 <label for="username" class="register-label">Username</label>
-                <input type="text" name="username" class="register-input">
+                <input type="text" name="username" class="register-input" require>
             </div>
             <div class="input-field">
                 <label for="email" class="register-label">Email</label>
-                <input type="email" name="email" class="register-input">
+                <input type="email" name="email" class="register-input" require>
             </div>
             <div class="input-field">
                 <label for="password" class="register-label">Password</label>
-                <input type="password" class="register-input" name="password">
+                <input type="password" class="register-input" id="password" name="password" require>
             </div>
             <div class="shw-field">
                 <input type="checkbox" name="showPassword" id="show-password">
@@ -31,5 +40,6 @@
             <p>Already have an Account <a href="./login.php">Login</a></p>
         </form>
     </div>
+    <script src="../js/show-password.js" defer></script>
 </body>
 </html>
