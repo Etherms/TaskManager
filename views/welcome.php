@@ -14,23 +14,58 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home - Task Manager</title>
+    <link rel="stylesheet" href="../css/navbar.css"> 
+    <link rel="stylesheet" href="../css/header.css">
 </head>
 <body>
     <div class="navbar">
-        <div class="profile">
-            <img src="#" alt="profile-icon" class="profile-picture">
-            <p class="profile-email"><?php echo "hermosaedson459@gmail.com"?></p>
-        </div>
-        <div class="navbar-row">
-            <img src="" alt="home-icon" class="home-icon navbar-icon">
-            <a href="#" class="nav-link">Home</a>
-        </div>
-        <div class="dashboard-row">
-            <img src="" alt="dashboard-icon" class="dashboard">
-            <a href="#" class="nav-link">Dashboard</a>
+        <div class="logo">This is the Logo</div>
+        <div class="nav-links">
+            <ul>
+                <a href="#" class="navbar-row">
+                    <img src="../svg/overview.svg" alt="overview-icon" class="link-icon">
+                    <p class="nav-desc">Overview</p>
+                </a>
+                <a href="#" class="navbar-row">
+                    <img src="../svg/task.svg" alt="Tasks-icon" class="link-icon">
+                    <p class="nav-desc">Tasks</p>
+                </a>
+                <a href="#" class="navbar-row">
+                    <img src="../svg/document.svg" alt="documents-icon" class="link-icon">
+                    <p class="nav-desc">Documents</p>
+                </a>
+                <a href="#" class="navbar-row">
+                    <img src="../svg/notes.svg" alt="notes-icon" class="link-icon">
+                    <p class="nav-desc">Notes</p>
+                </a>
+                <a href="#" class="navbar-row">
+                    <img src="../svg/output.svg" alt="output-icon" class="link-icon">
+                    <p class="nav-desc">Output</p>
+                </a>
+            </ul>
         </div>
     </div>
-        <a href="../controllers/logout-controller.php  " class="logout-btn">Logout</a>
+    <header>
+        <div class="search-bar">
+            <img src="../svg/search.svg" alt="search-icon" class="search-icon">
+            <input type="text" placeholder="Search" class="search-input">
+        </div>
+        <div class="account-info">
+            <img src="../img/me.jpg" alt="user-photo" class="user-photo">
+            <p class="welcome-user">Hello <?php echo "Edson"?>!</p>
+            
+            <div class="setting-box">
+            <a href="#" class="account-settings">Account Info</a>
+            <a href="#" class="give-feedback">Give Feedback</a>
+            <a href="../controllers/logout-controller.php  " class="logout-btn">Logout</a>
+            </div>
+        </div>
+
+        <div class="notification-holder">   
+        <img src="../svg/notification.svg" alt="notification-icon" class="notification-icon">
+        </div>
+    </header>
+        
 </body>
 </html>
