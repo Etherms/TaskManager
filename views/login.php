@@ -20,7 +20,7 @@
             <h1 class="login-title">Login</h1>
             <p class="login-phrase">Please login to continue</p>
             <div class="login-notification">
-                <p>
+                <p class="error-notification">
                     <?php 
                     if(isset($_GET['password_err'])) {
                         $password_err = $_GET['password_err'];
@@ -31,10 +31,16 @@
                         echo $username_err;
                     }?>    
                 </p>
+                <p class="account-notification"><?php
+                    if(isset($_GET['accountNotification'])){
+                        $accountNotification = $_GET['accountNotification'];
+                        echo $accountNotification;
+                    }
+                ?></p>
             </div>
             <div class="input-field">
                 <label for="name" class="login-label">Email or Username</label>
-                <input type="text" name="username" class="login-input" >
+                <input type="text" name="username" class="login-input" id="first-input">
             </div>
             <div class="input-field">
                 <label for="password" class="login-label">Password</label>
@@ -50,5 +56,6 @@
         </form>
     </div>
 </body>
-<script src="../js/show-password.js" defer></script>
+    <script src="../js/show-password.js" defer></script>
+    <script src="../js/active-first-input.js"></script>
 </html>

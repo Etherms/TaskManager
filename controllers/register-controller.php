@@ -2,35 +2,40 @@
 require_once "../db/config.php";
 
 
-// function generateOTP($length = 6) {
-//     $otp = '';
-//     for($i=0; $i< $length; $i++){
-//         $otp = rand(0,9); //Generate random digit;
-//     }
-//     return $otp;
-// }
-
-$encryptionKey = "EHRMTNOS";
-
 function encryptData($data,$key){
-    return openssl_encrypt($data, 'aes-256-cbc',$key, 0, substr($key, 0, 16));
+        $iv = openssl_random_pseudo_bytes(16);
+        $encrypted = openssl_encrypt($data, 'aes-256-cbc', $key, OPENSSL_RAW_DATA, $iv);
+        $result = base64_encode($iv . $encrypted);
+        return $result;
 }
+
+function getDataForm($scope){
+    $encryptionKey = "EHRMTNOS";
+
+    if(isset($_POST[$scope])){
+        $rawData = trim($_POST[$scope]);
+    }
+
+    if($scope == 'email'){ // Use comparison operator ==
+        if (!filter_var($rawData, FILTER_VALIDATE_EMAIL)) {
+            $emailErr = "Invalid email format";
+        } else {
+            return encryptData($rawData, $encryptionKey);
+        }
+    } else if($scope == 'password'){ // Use comparison operator ==
+        return password_hash($rawData, PASSWORD_DEFAULT);
+    }
+    return $rawData;
+}
+
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $username = trim($_POST["username"]);
-    $rawEmail = trim($_POST["email"]);
-    $rawPassword = trim($_POST["password"]);
-    
-    if (!filter_var($rawEmail, FILTER_VALIDATE_EMAIL)) {
-        $emailErr = "Invalid email format";
-    } else {
-        $email = $rawEmail;
-        $encryptedEmail = encryptData($email,$encryptionKey);
-    }
+    $username = getDataForm('username');
+    $encryptedEmail = getDataForm('email');
+    $hashedPassword = getDataForm('password');
 
-    $hashedPassword = password_hash($rawPassword, PASSWORD_DEFAULT);
 
     $stmt = $conn->prepare("INSERT INTO users (username, email, password, reg_date) VALUES (?, ?, ?, NOW())");
     
@@ -40,11 +45,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         if ($stmt->execute()) { 
             // Redirect to login page if registration is successful
-            header("Location: ../views/login.php");
+            $accountNotification = "Account Created Successfully";
+            header("Location: ../views/login.php?accountNotification=" . urlencode($accountNotification));
             exit(); // Terminate script execution after redirection
         } else {
             echo "Error: " . $stmt->error;
-            header("Location: ../views/welcome.php");
+            header("Location: ../views/register.php");
             exit();
         }
         

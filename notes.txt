@@ -1,0 +1,32 @@
+Navabar
+-Overview
+-Tasks
+-Documents
+-Notes
+-Output
+
+Header
+-Search Bar
+-User-Image
+-User-Name
+-Notification
+
+`Users`
+user_id
+username
+email
+password
+reg_date
+
+`category`
+category_id
+category name
+
+`notes`
+notes_id
+category_id
+user_id
+title
+note_content
+status
+creation_date

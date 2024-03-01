@@ -22,7 +22,7 @@
             <p class="register-phase">Please fill this form to register</p>
             <div class="input-field">
                 <label for="username" class="register-label">Username</label>
-                <input type="text" name="username" class="register-input" require>
+                <input type="text" name="username" class="register-input" id="first-input" require>
             </div>
             <div class="input-field">
                 <label for="email" class="register-label">Email</label>
@@ -32,6 +32,11 @@
                 <label for="password" class="register-label">Password</label>
                 <input type="password" class="register-input" id="password" name="password" require>
             </div>
+            <label for="password-strength" class="pswd-strength-label ">Password Strength</label>
+            <div class="power-container"> 
+                <div id="power-point"></div> 
+            </div> 
+            
             <div class="shw-field">
                 <input type="checkbox" name="showPassword" id="show-password">
                 <label for="showPassword" id="shw-btn-phrs">Show Password</label>
@@ -41,5 +46,7 @@
         </form>
     </div>
     <script src="../js/show-password.js" defer></script>
+    <script src="../js/password-strength.js" defer></script>
+    <script src="../js/active-first-input.js"></script>
 </body>
 </html>

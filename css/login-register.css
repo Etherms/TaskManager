@@ -44,9 +44,14 @@
 }
 
 .login-notification>*{
-    color: red;
     font-weight: 500;
     font-size: 17px;
+}
+.error-notification{
+    color: red;
+}
+.account-notification{
+    color: green;
 }
 .login-label,
 .register-label{
@@ -60,7 +65,7 @@
     border: 1px solid rgba(128, 128, 128, 0.623);
     border-radius: 10px;
     padding: 10px;
-    font-size: 17px;
+    font-size: 17.5px;
     outline: none;
 }
 .login-input:focus,
@@ -91,4 +96,21 @@
     border-radius:10px;
     margin-top: 20px;
     margin-bottom:20px;
+}
+.pswd-strength-label{
+    font-weight: 500;
+}
+.power-container { 
+    background-color: #2E424D; 
+    width: 100%; 
+    height: 15px; 
+    border-radius: 5px; 
+    margin-top: 10px;
+} 
+.power-container #power-point { 
+    background-color: #D73F40; 
+    width: 1%; 
+    height: 100%; 
+    border-radius: 5px; 
+    transition: 0.5s; 
 }

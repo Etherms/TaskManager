@@ -62,13 +62,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 exit;
             }
             else {
-                $password_err = "The username or password you entered was not valid.";
+                $password_err = "The username or password you entered was not valid";
                 header("Location: ../views/login.php?password_err=" . urlencode($password_err));
                 exit;
             }
         }
         else{
-            $username_err = "The username or password you entered was not valid.";
+            $username_err = "The username or password you entered was not valid";
             header("Location: ../views/login.php?username_err=" . urlencode($username_err));
             exit;
         }
