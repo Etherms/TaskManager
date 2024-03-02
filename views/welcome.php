@@ -51,11 +51,11 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             <img src="../svg/search.svg" alt="search-icon" class="search-icon">
             <input type="text" placeholder="Search" class="search-input">
         </div>
-        <div class="account-info">
+        <div class="account-info" id="account-info">
             <img src="../img/me.jpg" alt="user-photo" class="user-photo">
-            <p class="welcome-user">Hello <?php echo "Edson"?>!</p>
+            <p class="welcome-user">Hello <?php echo ucfirst($_SESSION["username"])?>!</p>
             
-            <div class="setting-box">
+            <div class="setting-box" id="setting-box">
             <a href="#" class="account-settings">Account Info</a>
             <a href="#" class="give-feedback">Give Feedback</a>
             <a href="../controllers/logout-controller.php  " class="logout-btn">Logout</a>
@@ -66,6 +66,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         <img src="../svg/notification.svg" alt="notification-icon" class="notification-icon">
         </div>
     </header>
-        
+    <script src="../js/account-setting.js" defer></script>
 </body>
 </html>

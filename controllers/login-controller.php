@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($username_err) && empty($password_err)) {
 
 
-        $stmt = $conn->prepare("SELECT id, username, email, password FROM users WHERE username = ?");
+        $stmt = $conn->prepare("SELECT user_id, username, email, password FROM users WHERE username = ?");
 
         $stmt->bind_param("s",$username);
         $stmt->execute();
