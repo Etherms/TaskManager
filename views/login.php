@@ -54,6 +54,7 @@
 
             <p>Don't have an account? <a href="./register.php">Sign Up</a></p>
         </form>
+        <!-- This is a test sample of the name -->
     </div>
 </body>
     <script src="../js/show-password.js" defer></script>
